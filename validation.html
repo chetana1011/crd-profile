@@ -61,12 +61,15 @@ input[type=text]:focus, input[type=password]:focus,input[type=email]:focus,input
                    return false;
                }
             
-           else{return true;}
+           else{alert("your form is submitted");}
+   }
+        function add(){
+        alert("your form submitted")
      }
 </script>
 <head>
 <body style="font-size: 140%;">
-<form onsubmit="return validate()" action="message.html" name="form" method="post">
+<form onsubmit="return validate()" name="form" method="post">
      Email Address : <input id="mail" type="email" placeholder="Enter your email here"/><br>
      <label id="lbe" style="color:red; visibility:hidden">Please enter valid email</label>
      <br>
