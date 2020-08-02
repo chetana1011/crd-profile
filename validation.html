@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+         <title>form validation</title>
+<style>
+input[type=text], input[type=password],input[type=email],input[type=number]{
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 0px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus,input[type=email]:focus,input[type=number]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+</style>
+<script type="text/javascript">
+          function validate()
+         {
+            var mail=document.getElementById("mail");
+            var uname=document.getElementById("uname");
+            var pw=document.getElementById("pw");
+            var age=document.getElementById("age");
+            var cpw=document.getElementById("cpw");
+            var gender=document.getElementsByName("gender");
+            
+            if(mail.value.trim()==""){
+                    mail.style.border="solid 3px red";
+                    document.getElementById("lbe").style.visibility="visible";	
+                    return false;
+               }
+             else if(uname.value.trim()==""){
+                 uname.style.border="solid 3px red";
+                 document.getElementById("lbu").style.visibility="visible";	
+                  return false;
+               }
+            else if(pw.value.trim()==""|| pw.value.length<8){
+                 pw.style.border="solid 3px red";
+                 document.getElementById("lbp").style.visibility="visible";	
+                  return false;
+               }
+            else if(cpw.value.trim()==""|| cpw.value!=pw.value){
+                  cpw.style.border="solid 3px red";
+                  document.getElementById("lbcp").style.visibility="visible";	
+                   return false;
+               }
+           else if(age.value.trim()==""){
+                 age.style.border="solid 3px red";
+                 document.getElementById("lbed").style.visibility="visible";	
+                  return false;
+               }
+            else if(gender[0].checked==false && gender[1].checked==false){
+                  document.getElementById("lbgender").style.visibility="visible";	
+                  return false;
+              }
+            else if(document.form.term.checked==false){
+                   document.getElementById("lbt").style.visibility="visible";	
+                   return false;
+               }
+            
+           else{return true;}
+     }
+</script>
+<head>
+<body style="font-size: 140%;">
+<form onsubmit="return validate()" action="message.html" name="form" method="post">
+     Email Address : <input id="mail" type="email" placeholder="Enter your email here"/><br>
+     <label id="lbe" style="color:red; visibility:hidden">Please enter valid email</label>
+     <br>
+     Username:<input id ="uname" type="text" placeholder= "Enter your Username"/><br>
+    <label id="lbu" style="color:red; visibility:hidden">Please enter username</label>
+     <br>
+     Password:<input id="pw" type="password" placeholder="Enter valid password"/><br>
+     <label id="lbp" style="color:red; visibility:hidden">Please enter valid password(should contain atleast 8 characters)</label>
+     <br>
+     Confirm Password: <input id="cpw" type="password" placeholder= "Confirm your password"/><br>
+     <label id="lbcp" style="color:red; visibility:hidden">password isn't matching</label>
+     <br>
+     Age: <input id="age" type="number" size="6" min="18" max="99"/><br>
+     <label id="lbed" style="color:red; visibility:hidden">Please enter your age</label>
+     <br>
+     Gender: <input type="radio" name="gender"/>male<br>
+     <input type="radio" name="gender"/>female<br>
+     <label id="lbgender" style="color:red; visibility:hidden">choose gender</label>
+     <br>
+    <input type="checkbox" name="term">Done<br>
+    <label id="lbt" style="color:red; visibility:hidden">Please check box to submit form</label>
+    <br>
+    <center><button type="submit" style="background-color:DodgerBlue ;padding:15px 32px;">Submit</button></center>
+</form>
+</body>
+</html>

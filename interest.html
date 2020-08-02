@@ -1,0 +1,71 @@
+<html>
+    <head>
+	<title>CALCULATE SI & CI</title>
+<style>   
+.parent{
+                font-size : 150%
+}
+.button {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+  
+</style>
+  
+         <script>
+            function s_calculate()
+            {
+
+               p = Number(document.getElementById("p").value);
+                n = document.getElementById("n").value;
+                r = document.getElementById("r").value;
+                ans =Number(p*n*r/100) ;
+                
+                var amt =p + ans;
+                document.getElementById("result").innerHTML = "Simple Interest is : "+ans
+                document.getElementById("amount").innerHTML="Total amount paid back is : "+amt
+            }
+           function c_calculate()
+            {
+              q=Number(document.getElementById("q").value);
+              s=Number(document.getElementById("s").value);
+              t=Number(document.getElementById("t").value);
+              m=Number(document.getElementById("m").value);
+              A =(q*Math.pow((1+(s/(m*100))),(m*t)));
+              document.getElementById("op").innerHTML="Compound Interest is : "+A
+            }
+        </script>
+    </head>
+     <body class="parent" style="background-color:LavenderBlush;">
+        <h2>Claculate Simple Interest</h2>
+
+        Enter principal : <input id="p"><br/>
+        <br>
+        Enter Rate of interest: <input id="r"><br/>
+        <br>
+        No. of  Years:<input id="n"><br/>
+      <br>
+     <button class="button" onclick="s_calculate()">Calculate</button>
+     <p id="result"></p>
+     <p id="amount"></p>
+     <h2>Claculate Compound Interest</h2>
+     Enter loan amount(Principal) :<input id="q"></br>
+     <br>
+     Enter Rate of interest: <input id="s" ><br/>
+     <br>
+     No. of times interest is compunded:<input id="m"></br>
+     <br>
+     No. of  Years:<input id="t"><br/>
+     <br>
+     <button class="button" onclick="c_calculate()">Calculate</button>
+     <p id="op"></p>
+     </body>
+</html>
